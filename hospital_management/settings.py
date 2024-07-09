@@ -84,10 +84,10 @@ WSGI_APPLICATION = 'hospital_management.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'verceldploy',
-        'USER': 'mysuperuser',
+        'NAME': 'verceldeploy',
+        'USER': 'madhu',
         'PASSWORD': 'mysuperuser',
-        'HOST': 'myrdshost.rds.amazonaws.com',
+        'HOST': 'verceldeploy.cnog2m6k841i.ap-southeast-2.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
