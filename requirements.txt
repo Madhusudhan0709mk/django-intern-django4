@@ -1,3 +1,5 @@
 Django
 django
 pillow
+psycopg2
+psycopg2-binary
