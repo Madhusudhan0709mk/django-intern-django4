@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="col-md-8 offset-md-4">
+    <br><br>
+    <div class="card" style="width: 18rem;">
+        {% if user.profile_picture %}
+        <img src="{{ user.profile_picture.url }}" class="card-img-top" alt="...">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">{{ user.username }}</h5>
+          <p class="card-text">First Name: {{ user.first_name }} Last Name: {{ user.last_name }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Email: {{ user.email }}</li>
+          <li class="list-group-item">Address: {{ user.address_line1 }}, {{ user.city }}, {{ user.state }} - {{ user.pincode }}</li>
+          <li class="list-group-item">User Type: {{ user.get_user_type_display }}</li>
+        </ul>
+
+      </div>
+
+    </div>
+    <br><br> <br><br>
+{% endblock %}
