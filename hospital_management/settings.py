@@ -145,3 +145,14 @@ AUTH_USER_MODEL = 'users.User'
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+# aws s3 bucket configuration
+AWS_ACCESS_KEY_ID = 'AKIAU6GDVVLDPWR3J6LQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'verceldjangobucket'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = 'ap-southeast-2'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERIFY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
