@@ -54,11 +54,23 @@ def my_blog_posts(request):
     
     blog_posts = BlogPost.objects.filter(author=request.user)
     categories = Category.objects.all()
+    for post in blog_posts:
+        word = post.summary.split()
+        if len(word)>15:
+            post.truncated_summary = ' '.join(word[:15]) + '...'
+        else:
+            post.truncated_summary = post.summary
     return render(request, 'blog/my_blog_posts.html', {'blog_posts': blog_posts,'categories':categories})
 
 def blog_posts_by_category(request, slug):
     category = get_object_or_404(Category, slug=slug)
     blog_posts = BlogPost.objects.filter(category=category, status='Published')
+    for post in blog_posts:
+        word = post.summary.split()
+        if len(word)>15:
+            post.truncated_summary = ' '.join(word[:15]) + '...'
+        else:
+            post.truncated_summary = post.summary
     return render(request, 'blog/blog_posts_by_category.html', {'category': category, 'blog_posts': blog_posts})
 
 
@@ -69,4 +81,10 @@ def draft(request):
     
     blog_posts = BlogPost.objects.filter(author=request.user)
     categories = Category.objects.all()
+    for post in blog_posts:
+        word = post.summary.split()
+        if len(word)>15:
+            post.truncated_summary = ' '.join(word[:15]) + '...'
+        else:
+            post.truncated_summary = post.summary
     return render(request,'blog/draft.html', {'blog_posts': blog_posts,'categories':categories})
