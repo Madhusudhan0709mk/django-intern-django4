@@ -88,7 +88,7 @@ DATABASES = {
         'NAME': 'blog',
         'USER': 'root',
         'PASSWORD': 'mad123',
-        'HOST': 'localhost',  # Or your MySQL server IP address
+        'HOST': 'localhost', 
         'PORT': '3306',       
     }
 }
