@@ -5,6 +5,7 @@ from users.models import *
 
 class Category(models.Model):
     name = models.CharField(max_length=125,null=True,blank=True)
+    slug = models.CharField(default='others',max_length=125)
     def __str__(self):
         return self.name
     

@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="col-md-6 offset-md-3">
+
+    <h2 style="text-align: center;">Blog Posts</h2>
+  
+    {% for post in blog_posts %}
+    <div class="card mb-3">
+        <img src="{{ post.image.url }}" class="card-img-top" alt="..." height="300px">
+        <div class="card-body">
+          <h5 class="card-title">Title : {{ post.title }}</h5>
+          {% comment %} <p class="card-text">Content :{{post.content }}</p> {% endcomment %}
+          <p class="card-text">Summary :{{post.truncated_summary }}</p>
+  
+{% comment %} 
+          <p class="card-text"><small class="text-body-secondary">Author name:{{ post.author }}</small></p>
+          <p class="card-text"><small class="text-body-secondary">created on :{{ post.created_at }}</small></p> {% endcomment %}
+        </div>
+      </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

@@ -1,15 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Blog Posts</title>
-</head>
-<body>
-    <h2>My Blog Posts</h2>
-    <ul>
-        {% for post in blog_posts %}
-            <li>{{ post.title }} - {{ post.status }}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "main.html" %}
+{% block content %}
+<div class="col-md-6 offset-md-3">
+
+    <span class="dropdown">
+      
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+         Select Category
+        </button>
+        <ul class="dropdown-menu">
+            {% for category in categories %}
+
+          <li><a class="dropdown-item" href="{% url 'blog_posts_by_category' category.slug %}">{{ category.name }}</a></li>
+      {% endfor %}
+        </ul>
+      </span>
+      <span class="dropdown">
+    <a href="{% url 'draft' %}" class="btn btn-secondary">
+      
+         Draft
+    
+    </a>  
+      </span>
+    
+    <h2 style="text-align: center;">My Blog Posts</h2>
+
+
+  
+    {% for post in blog_posts %}
+    {% if post.status == 'Published' %}
+    <div class="card mb-3">
+        <img src="{{ post.image.url }}" class="card-img-top" alt="..." height="300px">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-body-secondary">{{ post.status }}</small></p>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+
+</div>
+{% endblock %}

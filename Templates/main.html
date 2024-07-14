@@ -22,16 +22,25 @@
            
               {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'dashboard' %}">Hello,{{ user.first_name }}</a>
+                <a class="nav-link" href="{% url 'dashboard' %}">Hello,{{user.user_type}}-{{ user.first_name }}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
               </li>
+              {% if user.user_type == 'Patient'%}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">logout</a>
+                <a class="nav-link" href="{% url 'all_blog' %}">Blogs</a>
               </li>
+              {% else %}
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'create_blog_post' %}">Create Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'my_blog_posts' %}">My Blog</a>
+              </li>
+              {% endif %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">logout</a>
               </li>
               {% else %}
               <li class="nav-item">
@@ -50,8 +59,12 @@
           </div>
         </div>
       </nav>
-
+{% comment %} error messages or success {% endcomment %}
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
       {% comment %} main page content {% endcomment %}
+      
       {% block content %}
       
       {% endblock %}

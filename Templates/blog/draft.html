@@ -2,18 +2,32 @@
 {% block content %}
 <div class="col-md-6 offset-md-3">
 
-    <div class="dropdown">
+    <span class="dropdown">
+      
         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
          Select Category
         </button>
         <ul class="dropdown-menu">
             {% for category in categories %}
 
-          <li><a class="dropdown-item" href="{% url 'blog_posts_by_category' category.id %}">{{ category.name }}</a></li>
+          <li><a class="dropdown-item" href="{% url 'blog_posts_by_category' category.slug %}">{{ category.name }}</a></li>
       {% endfor %}
         </ul>
-      </div>
+      </span>
+      <span class="dropdown">
+    
+        <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+         Draft
+        </button>
+        
+      </span>
+    
+    <h2 style="text-align: center;">My Blog Posts</h2>
+
+
+  
     {% for post in blog_posts %}
+    {% if post.status == 'Draft' %}
     <div class="card mb-3">
         <img src="{{ post.image.url }}" class="card-img-top" alt="..." height="300px">
         <div class="card-body">
@@ -22,8 +36,8 @@
           <p class="card-text"><small class="text-body-secondary">{{ post.status }}</small></p>
         </div>
       </div>
+      {% endif %}
     {% endfor %}
+
 </div>
-
-
 {% endblock %}
