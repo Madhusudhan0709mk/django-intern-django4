@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog Posts</title>
+</head>
+<body>
+    <h2>My Blog Posts</h2>
+    <ul>
+        {% for post in blog_posts %}
+            <li>{{ post.title }} - {{ post.status }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

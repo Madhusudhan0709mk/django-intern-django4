@@ -22,10 +22,16 @@
            
               {% if user.is_authenticated %}
               <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard' %}">Hello,{{ user.first_name }}</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}">logout</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'create_blog_post' %}">Create Blog</a>
               </li>
               {% else %}
               <li class="nav-item">
@@ -59,7 +65,7 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">Welcome to Intern project</h5>
-          <p class="card-text">explore login,sihnup,logout</p>
+          <p class="card-text">explore login,signup,logout</p>
           <a href="{% url 'dashboard' %}" class="btn btn-primary">Go to Dashboard</a>
         </div>
       

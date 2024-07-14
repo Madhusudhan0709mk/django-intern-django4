@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users'
+    'users',
+    'blog'
 ]
 
 MIDDLEWARE = [
@@ -74,23 +75,23 @@ WSGI_APPLICATION = 'hospital_management.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'verceldeploy',
-        'USER': 'madhu',
-        'PASSWORD': 'mysuperuser',
-        'HOST': 'verceldeploy.cnog2m6k841i.ap-southeast-2.rds.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'verceldeploy',
+#         'USER': 'madhu',
+#         'PASSWORD': 'mysuperuser',
+#         'HOST': 'verceldeploy.cnog2m6k841i.ap-southeast-2.rds.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
@@ -147,12 +148,12 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # aws s3 bucket configuration
-AWS_ACCESS_KEY_ID = 'AKIAU6GDVVLDPWR3J6LQ'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'verceldjangobucket'
-AWS_S3_SIGNATURE_VERSION = 's3v4',
-AWS_S3_REGION_NAME = 'ap-southeast-2'
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL =  None
-AWS_S3_VERIFY = True
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID = 'AKIAU6GDVVLDPWR3J6LQ'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'verceldjangobucket'
+# AWS_S3_SIGNATURE_VERSION = 's3v4',
+# AWS_S3_REGION_NAME = 'ap-southeast-2'
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL =  None
+# AWS_S3_VERIFY = True
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
