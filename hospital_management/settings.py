@@ -171,4 +171,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 # AWS_S3_VERIFY = True
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-GOOGLE_CALENDAR_CREDENTIALS =  os.path.join(BASE_DIR, 'client_secret_983091250880-i1gg8po72qmervd4oj9n8dte7s14s3gk.apps.googleusercontent.com.json')
