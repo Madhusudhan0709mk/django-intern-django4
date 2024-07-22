@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import BlogPostForm
 from .models import BlogPost, Category
 from django.contrib import messages
+from users.models import User
 
 @login_required
 def all_blog(request):
@@ -88,3 +89,11 @@ def draft(request):
         else:
             post.truncated_summary = post.summary
     return render(request,'blog/draft.html', {'blog_posts': blog_posts,'categories':categories})
+
+
+def doctors(request):
+    doctors = User.objects.all()
+    context={
+        'doctors':doctors
+    }
+    return render(request,'doctors/list_doctors.html',context)
