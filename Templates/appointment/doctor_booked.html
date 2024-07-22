@@ -1,17 +1,17 @@
 {% extends 'main.html' %}
 {% block content %}
 <div class="col-md-6 offset-md-3" >
-<h4 style=" text-align: center;">Booked Appointment</h4>
-
+<h4 style=" text-align: center;">Booked Appointment from Patients</h4>
+{% if booked %}
    {% for book in booked %}
 
     <div class="card text-center">
       <div class="card-header">
-        <h5 class="card-title">Doctor Name : {{book.doctor.username}}</h5>
+        <h5 class="card-title">Patient Name : {{book.patient.username}}</h5>
        </div>
       <div class="card-body">
      
-      <p class="card-text">Speciality : {{ book.doctor.speciality }}</p>
+      {% comment %} <p class="card-text">Speciality : {{ book.doctor.speciality }}</p> {% endcomment %}
       <p class="card-text">Date : {{ book.date }}</p>
       <p  class="card-text"><b>Google Calender Api Timings</b>: {{ book.start_time }} - {{ book.end_time }}</p>
       
@@ -20,4 +20,7 @@
     </div>
 </div>
    {% endfor %}
+   {% else %}
+    <p>No booked appointments found.</p>
+  {% endif %}
 {% endblock %}

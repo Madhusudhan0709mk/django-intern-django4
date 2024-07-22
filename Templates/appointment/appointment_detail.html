@@ -1,9 +1,21 @@
 {% extends "main.html" %}
 {% block content %}
-  <h2>Appointment Details</h2>
-  <p>Doctor: {{ appointment.doctor.username }}</p>
-  <p>Speciality: {{ appointment.doctor.speciality }}</p>
-  <p>Date: {{ appointment.date }}</p>
-  <p>Start Time: {{ appointment.start_time }}</p>
-  <p>End Time: {{ appointment.end_time }}</p>
+  <h2 style="text-align: center;">Appointment Details</h2>
+  <div class="col-md-6 offset-md-3" >
+
+  <div class="card text-center">
+    <div class="card-header">
+      Doctor: {{ appointment.doctor.username }}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Speciality: {{ appointment.doctor.speciality }}</h5>
+      
+      <p>Date: {{ appointment.date }}</p>
+      <p><b>Google Calender Api Timings</b>: {{ appointment.start_time }} - {{ appointment.end_time }}</p>
+    
+    </div>
+    
+  </div>
+</div>
+
 {% endblock %}

@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'blog',
-    'appointment'
+    'appointment',
+    'google_auth_oauthlib'
 ]
 
 MIDDLEWARE = [
