@@ -13,3 +13,4 @@ class User(AbstractUser):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     pincode = models.CharField(max_length=10)
+    speciality = models.CharField(max_length=125,default='none')

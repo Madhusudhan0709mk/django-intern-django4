@@ -1,0 +1,9 @@
+{% extends "main.html" %}
+{% block content %}
+  <h2>Appointment Details</h2>
+  <p>Doctor: {{ appointment.doctor.username }}</p>
+  <p>Speciality: {{ appointment.doctor.speciality }}</p>
+  <p>Date: {{ appointment.date }}</p>
+  <p>Start Time: {{ appointment.start_time }}</p>
+  <p>End Time: {{ appointment.end_time }}</p>
+{% endblock %}

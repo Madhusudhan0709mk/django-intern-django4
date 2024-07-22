@@ -4,8 +4,10 @@
     <br><br>
     <div class="card" style="width: 18rem;">
     
-      {% if user.profile_picture.url %}
+      {% if user.profile_picture %}
                   <img src="{{user.profile_picture.url}}" class="card-img-top" alt="...">
+                  {% else %}
+                  <img src="#" class="card-img-top" alt="no image">
   {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{ user.username }}</h5>
@@ -13,8 +15,12 @@
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Email: {{ user.email }}</li>
+          
           <li class="list-group-item">Address: {{ user.address_line1 }}, {{ user.city }}, {{ user.state }} - {{ user.pincode }}</li>
           <li class="list-group-item" style="color: red;">You are : {{ user.user_type }}</li>
+          {% if user.user_type == 'Doctor' %}
+          <li class="list-group-item">Speciality: {{ user.speciality }}</li>
+          {% endif %}
         </ul>
 
       </div>

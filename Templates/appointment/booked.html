@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="col-md-6 offset-md-3" >
+<h4 style=" text-align: center;">Booked Appointment</h4>
+
+   {% for book in booked %}
+
+    <div class="card text-center">
+      <div class="card-header">
+        <h5 class="card-title">Doctor Name : {{book.doctor.username}}</h5>
+       </div>
+      <div class="card-body">
+     
+      <p class="card-text">Speciality : {{ book.doctor.speciality }}</p>
+      <p class="card-text">Date : {{ book.date }}</p>
+      <p class="card-text">timings : {{ book.start_time  }} - {{book.end_time}}</p>
+      
+      </div>
+    
+    </div>
+</div>
+   {% endfor %}
+{% endblock %}

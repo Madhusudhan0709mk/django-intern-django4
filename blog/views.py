@@ -4,7 +4,7 @@ from .forms import BlogPostForm
 from .models import BlogPost, Category
 from django.contrib import messages
 from users.models import User
-
+from appointment.models import Appointment
 @login_required
 def all_blog(request):
     blog_posts = BlogPost.objects.all()
@@ -92,8 +92,9 @@ def draft(request):
 
 
 def doctors(request):
-    doctors = User.objects.all()
+    doctors = User.objects.filter(user_type='Doctor')
     context={
         'doctors':doctors
     }
     return render(request,'doctors/list_doctors.html',context)
+

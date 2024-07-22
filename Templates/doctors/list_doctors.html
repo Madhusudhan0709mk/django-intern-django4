@@ -12,12 +12,13 @@
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title"> {{doctor.username}}</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <button class="btn btn-primary">Book Appointment</button>
+              <p class="card-text">Speciality:{{doctor.speciality}}</p>
+              <a href="{% url 'book_appointment' doctor.id %}" class="btn btn-primary" >Book Appointment</a>
             </div>
           </div>
         </div>
       </div>
+      
     {% endfor %}
 </div>
 {% endblock %}
