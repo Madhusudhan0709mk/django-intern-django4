@@ -14,33 +14,6 @@ from django.conf import settings
 from googleapiclient.discovery import build
 
 
-def create_event(summary, description, start_time, end_time, attendees):
-    SCOPES = ['https://www.googleapis.com/auth/calendar']
-    SERVICE_ACCOUNT_FILE = settings.GOOGLE_CALENDAR_CREDENTIALS
-
-    credentials = service_account.Credentials.from_service_account_file(
-        SERVICE_ACCOUNT_FILE, scopes=SCOPES)
-    service = build('calendar', 'v3', credentials=credentials)
-
-    event = {
-        'summary': summary,
-        'description': description,
-        'start': {
-            'dateTime': start_time,
-            'timeZone': 'America/Los_Angeles',
-        },
-        'end': {
-            'dateTime': end_time,
-            'timeZone': 'America/Los_Angeles',
-        },
-        'attendees': attendees,
-        'reminders': {
-            'useDefault': True,
-        },
-    }
-
-    event = service.events().insert(calendarId='primary', body=event).execute()
-    return event
 
 
 def demo(request):
