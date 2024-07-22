@@ -1,5 +1,4 @@
-import os
-print(os.getcwd())
+
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
@@ -7,12 +6,6 @@ from django.contrib.auth.decorators import login_required
 from users.models import User
 from .models import *
 from .forms import AppointmentForm
-
-
-from google.oauth2 import service_account
-from django.conf import settings
-from googleapiclient.discovery import build
-
 
 
 
